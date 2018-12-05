@@ -3,8 +3,8 @@ PRACTICE Exam 1, problem 1.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Valerie Galluzzi, Mark Hays, Amanda Stouder, Aaron Wilkin,
-         their colleagues, and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues, and Thomas Hoevener.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ###############################################################################
 # Students:
@@ -38,7 +38,7 @@ def main():
 
 
 ###############################################################################
-# TODO: 2.  READ the green doc-string for the:
+# DONE: 2.  READ the green doc-string for the:
 #   - is_prime
 #   - sum_of_digits
 # functions defined below.  You do NOT need to understand their
@@ -149,6 +149,19 @@ def run_test_problem1a():
     #   print('       actual:  ', actual)
     # -------------------------------------------------------------------------
 
+    # Test 3:
+    expected = 1.135  # This is APPROXIMATELY the correct answer.
+    actual = problem1a(1, -2)
+    print('Test 3:')
+    print('expected = ', expected)
+    print('actual = ', actual)
+
+    # Test 4:
+    expected = 1.278  # This is APPROXIMATELY the correct answer.
+    actual = problem1a(30, 100)
+    print('Test 4:')
+    print('expected = ', expected)
+    print('actual = ', actual)
 
 def problem1a(m, n):
     """
