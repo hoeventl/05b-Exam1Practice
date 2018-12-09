@@ -8,6 +8,7 @@ Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
 
 import rosegraphics as rg
 
+
 ###############################################################################
 # Students:
 #
@@ -103,7 +104,7 @@ def problem2a(circle, rectangle, window):
       :type window:    rg.RoseWindow
     """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #          Tests have been written for you (above).
     # -------------------------------------------------------------------------
     # -------------------------------------------------------------------------
@@ -117,7 +118,13 @@ def problem2a(circle, rectangle, window):
     window.continue_on_mouse_click()
     UR = rectangle.get_upper_right_corner()
     LL = rectangle.get_lower_left_corner()
-
+    line = rg.Line(UR, LL)
+    line.arrow = 'last'
+    line.attach_to(window)
+    window.render()
+    window.continue_on_mouse_click()
+    circle.fill_color = rectangle.outline_color
+    window.render()
 
 
 def run_test_problem2b():
@@ -182,7 +189,7 @@ def problem2b(rect, n, delta, win):
       :type win:    rg.RoseWindow
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Tests have been written for you (above).
     # -------------------------------------------------------------------------
     # -------------------------------------------------------------------------
@@ -190,6 +197,19 @@ def problem2b(rect, n, delta, win):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   15 to 25 minutes.
     # -------------------------------------------------------------------------
+    rect.attach_to(win)
+    LL = rect.get_lower_left_corner()
+    UR = rect.get_upper_right_corner()
+    for k in range(n - 1):
+        LL.x = LL.x - delta
+        UR.x = UR.x + delta
+        LL.y = LL.y + delta
+        UR.y = UR.y - delta
+        rectangles = rg.Rectangle(LL, UR)
+        LL = rectangles.get_lower_left_corner()
+        UR = rectangles.get_upper_right_corner()
+        rectangles.attach_to(win)
+    win.render()
 
 
 # -----------------------------------------------------------------------------
